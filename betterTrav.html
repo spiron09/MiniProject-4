@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>travSale</title>
+</head>
+<body>
+    <script>
+        var V = 4;
+        var ans = 1000000000;
+        var v = Array(V).fill(false);
+        v[0] = true;
+        function tsp(graph, currPos, n, count, cost) {
+            
+            if (count == n && graph[currPos][0]) {
+                ans = Math.min(ans, cost + graph[currPos][0]);
+                return;
+            }
+            for (var i = 0; i < n; i++) {
+
+                if (!v[i] && graph[currPos][i]) {
+                
+                    v[i] = true;
+                    tsp(graph, i, n, count + 1,
+                        cost + graph[currPos][i]);
+                    
+                    v[i] = false;
+                }
+            }
+        };
+        var n = 4;
+        var graph = [
+            [0, 10, 15, 20],
+            [10, 0, 35, 25],
+            [15, 35, 0, 30],
+            [20, 25, 30, 0]
+        ];
+        tsp(graph, 0, n, 1, 0); 
+        document.write("The graph is <br> <br>");
+        for (var i = 0; i < V; i++) {
+            for (var j = 0; j < V; j++) {
+                document.write(graph[i][j] + " ");
+            }
+            document.write("<br>");
+        }
+        document.write("<br> <br>");
+        document.write("The cost of minimum path is " + ans);
+    </script>
+</body>
+</html>
