@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>travSale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <script>
         var V = 4;
@@ -10,7 +16,7 @@
         var v = Array(V).fill(false);
         v[0] = true;
         function tsp(graph, currPos, n, count, cost) {
-            
+
             if (count == n && graph[currPos][0]) {
                 ans = Math.min(ans, cost + graph[currPos][0]);
                 return;
@@ -18,11 +24,11 @@
             for (var i = 0; i < n; i++) {
 
                 if (!v[i] && graph[currPos][i]) {
-                
+
                     v[i] = true;
                     tsp(graph, i, n, count + 1,
                         cost + graph[currPos][i]);
-                    
+
                     v[i] = false;
                 }
             }
@@ -34,7 +40,7 @@
             [15, 35, 0, 30],
             [20, 25, 30, 0]
         ];
-        tsp(graph, 0, n, 1, 0); 
+        tsp(graph, 0, n, 1, 0);
         document.write("<h1>The graph is <br> <br></h1>");
         for (var i = 0; i < V; i++) {
             document.write("<h1>");
@@ -47,4 +53,5 @@
         document.write("<h1> The cost of minimum path is " + ans + "</h1>");
     </script>
 </body>
+
 </html>
