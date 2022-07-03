@@ -35,15 +35,16 @@
             [20, 25, 30, 0]
         ];
         tsp(graph, 0, n, 1, 0); 
-        document.write("The graph is <br> <br>");
+        document.write("<h1>The graph is <br> <br></h1>");
         for (var i = 0; i < V; i++) {
+            document.write("<h1>");
             for (var j = 0; j < V; j++) {
                 document.write(graph[i][j] + " ");
             }
-            document.write("<br>");
+            document.write("<br></h1>");
         }
         document.write("<br> <br>");
-        document.write("The cost of minimum path is " + ans);
+        document.write("<h1> The cost of minimum path is " + ans + "</h1>");
     </script>
 </body>
 </html>
